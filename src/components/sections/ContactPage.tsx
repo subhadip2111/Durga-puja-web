@@ -3,6 +3,7 @@ import { Card } from "../ui/card";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { MapPin, Phone, Mail, Facebook, Instagram, Clock, Users } from "lucide-react";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const ContactPage = () => {
   const socialLinks = [
@@ -55,6 +56,13 @@ const ContactPage = () => {
     { role: "Treasurer", name: "Amit Kumar Das", phone: "+91 76543 21098" },
     { role: "Cultural Secretary", name: "Sunita Roy Chowdhury", phone: "+91 65432 10987" },
   ];
+//  const { isLoaded } = useLoadScript({
+//     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!, 
+//   });
+
+//   if (!isLoaded) return <div>Loading Map...</div>;
+
+  // const coords = { lat: 22.2342, lng: 87.7995 }; // approx coords for Saira, WB
 
   return (
     <div className="min-h-screen bg-gradient-subtle py-16">
@@ -193,7 +201,7 @@ const ContactPage = () => {
         </div>
 
         {/* Map Section */}
-        <div className="mt-16">
+        {/* <div className="mt-16">
           <Card className="p-8">
             <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Find Us</h2>
             <div className="aspect-video bg-gradient-subtle rounded-xl flex items-center justify-center">
@@ -210,7 +218,37 @@ const ContactPage = () => {
               </div>
             </div>
           </Card>
+        </div> */}
+
+ <div className="mt-16">
+      <Card className="p-8">
+        <h2 className="text-3xl font-bold text-foreground mb-6 text-center">
+          Find Us
+        </h2>
+        <div className="aspect-video rounded-xl overflow-hidden">
+          <iframe
+            className="w-full h-full rounded-xl border-0"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d407.19545073555935!2d87.92949658132959!3d22.35424984407362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0297027f66db8d%3A0x2c71e96caecb8b1b!2sBiswas%20Tarun%20Sangha%20Playground!5e1!3m2!1sen!2sin!4v1757693232595!5m2!1sen!2sin"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
+        <div className="flex justify-center mt-4">
+          <a
+            href="https://maps.app.goo.gl/YKEtFCxg9GMVE7Tu7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {/* <Button variant="festival">
+              <MapPin className="w-4 h-4 mr-2" />
+              Get Directions
+            </Button> */}
+          </a>
+        </div>
+      </Card>
+    </div>
+
       </div>
     </div>
   );

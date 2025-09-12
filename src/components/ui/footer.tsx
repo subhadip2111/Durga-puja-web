@@ -7,9 +7,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Committee Info */}
           <div className="col-span-2">
-            <h3 className="text-2xl font-bold mb-4">Durga Puja Committee 2024</h3>
+            <h3 className="text-2xl font-bold mb-4">Biswas Nunnan Sarbojonin Durgo Utsob Committee {new Date().getFullYear()}</h3>
             <p className="text-white/90 mb-4">
-              Celebrating the divine power of Maa Durga with devotion, culture, and community spirit. 
+              Celebrating  20 years the divine power of Maa Durga with devotion, culture, and community spirit. 
               Join us in this sacred festival that brings together hearts and souls.
             </p>
             <div className="flex items-center space-x-2 text-festival-gold">
@@ -57,7 +57,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-white/80 text-sm mb-4 md:mb-0">
-            © 2024 Durga Puja Committee. All rights reserved.
+  © {new Date().getFullYear()}  বিশ্বাস নুন্নান সর্বজনীন দুর্গোৎসব কমিটি. All rights reserved.
           </div>
           <div className="text-white/80 text-sm">
             🙏 শুভ দুর্গা পূজা | Shubho Durga Puja 🙏

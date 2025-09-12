@@ -25,11 +25,10 @@ const Navigation = ({ currentPage, onPageChange }: NavigationProps) => {
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-2xl font-bold bg-gradient-festival bg-clip-text text-transparent">
-              Durga Puja 2024
+             বিশ্বাস নুন্নান সর্বজনীন দুর্গোৎসব কমিটি
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-1">
               {navItems.map((item) => (
@@ -61,7 +60,6 @@ const Navigation = ({ currentPage, onPageChange }: NavigationProps) => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-festival-gold/20">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">

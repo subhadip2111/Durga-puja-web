@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 const SchedulePage = () => {
   const scheduleData = [
     {
-      day: "Shashthi",
+      day: "শুভ ষষ্ঠী",
       date: "October 20, 2024",
       dayNumber: "Day 1",
       color: "bg-festival-red",
@@ -18,7 +18,7 @@ const SchedulePage = () => {
       ]
     },
     {
-      day: "Saptami",
+      day: "মহা সপ্তমী",
       date: "October 21, 2024",
       dayNumber: "Day 2",
       color: "bg-festival-orange",
@@ -33,7 +33,7 @@ const SchedulePage = () => {
       ]
     },
     {
-      day: "Ashtami",
+      day: " মহা অষ্টমী",
       date: "October 22, 2024",
       dayNumber: "Day 3",
       color: "bg-festival-purple",
@@ -49,7 +49,22 @@ const SchedulePage = () => {
       ]
     },
     {
-      day: "Navami",
+      day: "মহানবমী",
+      date: "October 23, 2024",
+      dayNumber: "Day 4",
+      color: "bg-festival-gold",
+      events: [
+        { time: "06:00 AM", event: "Morning Prayers", venue: "Main Pandal" },
+        { time: "10:00 AM", event: "Navami Puja", venue: "Main Pandal" },
+        { time: "12:00 PM", event: "Maha Aarti", venue: "Main Pandal" },
+        { time: "02:00 PM", event: "Community Feast", venue: "Dining Hall" },
+        { time: "04:00 PM", event: "Final Cultural Program", venue: "Stage Area" },
+        { time: "06:00 PM", event: "Visarjan Preparation", venue: "Main Pandal" },
+        { time: "08:00 PM", event: "Visarjan Procession", venue: "Pandal to River" },
+      ]
+    },
+      {
+      day: "বিজয়া দশমী",
       date: "October 23, 2024",
       dayNumber: "Day 4",
       color: "bg-festival-gold",

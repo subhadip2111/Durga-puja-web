@@ -1,4 +1,4 @@
-import heroImage from "../../../src/assets/gallery-collage..jpg";
+import heroImage from "../../../src/assets/banner.jpg";
 
 import { Calendar, MapPin, Users } from "lucide-react";
 import { Button } from "../ui/button";
@@ -19,13 +19,13 @@ const HomePage = () => {
             শুভ দুর্গা পূজা
           </h1>
           <h2 className="text-3xl md:text-5xl font-semibold mb-8 text-festival-gold">
-            Durga Puja 2024
+            Durga Puja {new Date().getFullYear()}
           </h2>
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
             Join us in celebrating the divine power of Maa Durga with traditional rituals, 
             cultural programs, and community festivities
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="golden" size="lg" className="text-lg px-8 py-3">
               <Calendar className="mr-2" />
               View Schedule
@@ -34,7 +34,7 @@ const HomePage = () => {
               <Users className="mr-2" />
               Join Celebration
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
 

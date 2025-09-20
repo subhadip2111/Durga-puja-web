@@ -7,7 +7,7 @@ const SocialActivitiesPage = () => {
   const [activeTab, setActiveTab] = useState("gallery");
 
   const galleryImages = [
-    { id: 1, title: "Maa Durga Idol", category: "Religious" },
+    { id: 1, title: "Maa Durga Idol", category: "Religious" ,},
     { id: 2, title: "Cultural Dance Performance", category: "Cultural" },
     { id: 3, title: "Community Feast", category: "Community" },
     { id: 4, title: "Children's Program", category: "Cultural" },

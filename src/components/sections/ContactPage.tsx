@@ -172,7 +172,7 @@ const ContactPage = () => {
         </div>
 
         {/* Committee Members */}
-        <div className="bg-white rounded-2xl shadow-elegant p-8">
+        {/* <div className="bg-white rounded-2xl shadow-elegant p-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
               Our Organizing Committee
@@ -198,7 +198,7 @@ const ContactPage = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Map Section */}
         {/* <div className="mt-16">

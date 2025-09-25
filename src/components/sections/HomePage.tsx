@@ -9,20 +9,20 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-festival opacity-90"></div>
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         ></div>
-        
+
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
-            শুভ দুর্গা পূজা
+            বিশ্বাস নুন্নান সার্বজনীন দুর্গোৎসব  ২০২৫
           </h1>
           <h2 className="text-3xl md:text-5xl font-semibold mb-8 text-festival-gold">
             Durga Puja {new Date().getFullYear()}
           </h2>
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Join us in celebrating the divine power of Maa Durga with traditional rituals, 
+            Join us in celebrating the divine power of Maa Durga with traditional rituals,
             cultural programs, and community festivities
           </p>
           {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -47,8 +47,8 @@ const HomePage = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-festival mx-auto mb-8"></div>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Experience the grandeur of Durga Puja with our community. Four days of 
-              devotion, culture, and celebration awaits you with traditional pujas, 
+              Experience the grandeur of Durga Puja with our community. Four days of
+              devotion, culture, and celebration awaits you with traditional pujas,
               cultural programs, and social activities.
             </p>
           </div>

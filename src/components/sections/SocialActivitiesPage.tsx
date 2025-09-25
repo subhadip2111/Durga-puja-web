@@ -1,27 +1,45 @@
 import { useState } from "react";
 import { Camera, Video, Heart, Award, Users, Calendar } from "lucide-react";
-import culturalImage from "../../../src/assets/cultural-activities.jpg";
-import galleryImage from "../../../src/assets/gallery-collage..jpg";
-import { Button } from "../ui/button";
+
 const SocialActivitiesPage = () => {
   const [activeTab, setActiveTab] = useState("gallery");
 
+  // Image URLs - Replace these with your actual Google Drive image URLs
+  const imageUrls = {
+    gallery: [
+      'https://lh3.googleusercontent.com/d/1DVLW7AwPEht0wb31r6siG69l0C9VCPYq=s220?authuser=0', // Maa Durga Idol
+      'https://lh3.googleusercontent.com/d/16JfkGHuJAXVmLwa5wTtuqD5BdMIW6yQ3=s220?authuser=0', // Cultural Dance Performance
+      'https://drive.google.com/thumbnail?id=16JfkGHuJAXVmLwa5wTtuqD5BdMIW6yQ3', // Community Feast
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Children's Program
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Pandal Decoration
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Evening Aarti
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Blood Donation Camp
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Student Awards
+    ],
+    videos: [
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Video thumbnail 1
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Video thumbnail 2
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Video thumbnail 3
+      'https://drive.google.com/thumbnail?id=1DVLW7AwPEht0wb31r6siG69l0C9VCPYq', // Video thumbnail 4
+    ]
+  };
+
   const galleryImages = [
-    { id: 1, title: "Maa Durga Idol", category: "Religious" ,},
-    { id: 2, title: "Cultural Dance Performance", category: "Cultural" },
-    { id: 3, title: "Community Feast", category: "Community" },
-    { id: 4, title: "Children's Program", category: "Cultural" },
-    { id: 5, title: "Pandal Decoration", category: "Religious" },
-    { id: 6, title: "Evening Aarti", category: "Religious" },
-    { id: 7, title: "Blood Donation Camp", category: "Social" },
-    { id: 8, title: "Student Awards", category: "Social" },
+    { id: 1, title: "Maa Durga Idol", category: "Religious", imageUrl: imageUrls.gallery[0] },
+    { id: 2, title: "Cultural Dance Performance", category: "Cultural", imageUrl: imageUrls.gallery[1] },
+    { id: 3, title: "Community Feast", category: "Community", imageUrl: imageUrls.gallery[2] },
+    { id: 4, title: "Children's Program", category: "Cultural", imageUrl: imageUrls.gallery[3] },
+    { id: 5, title: "Pandal Decoration", category: "Religious", imageUrl: imageUrls.gallery[4] },
+    { id: 6, title: "Evening Aarti", category: "Religious", imageUrl: imageUrls.gallery[5] },
+    { id: 7, title: "Blood Donation Camp", category: "Social", imageUrl: imageUrls.gallery[6] },
+    { id: 8, title: "Student Awards", category: "Social", imageUrl: imageUrls.gallery[7] },
   ];
 
   const videos = [
-    { id: 1, title: "Durga Puja 2024 Highlights", duration: "5:30" },
-    { id: 2, title: "Cultural Programs Compilation", duration: "8:45" },
-    { id: 3, title: "Community Celebration Moments", duration: "3:20" },
-    { id: 4, title: "Traditional Puja Rituals", duration: "12:15" },
+    { id: 1, title: "Durga Puja 2024 Highlights", duration: "5:30", thumbnailUrl: imageUrls.videos[0] },
+    { id: 2, title: "Cultural Programs Compilation", duration: "8:45", thumbnailUrl: imageUrls.videos[1] },
+    { id: 3, title: "Community Celebration Moments", duration: "3:20", thumbnailUrl: imageUrls.videos[2] },
+    { id: 4, title: "Traditional Puja Rituals", duration: "12:15", thumbnailUrl: imageUrls.videos[3] },
   ];
 
   const socialEvents = [
@@ -54,16 +72,43 @@ const SocialActivitiesPage = () => {
     }
   ];
 
+  const Button = ({ children, variant = "default", size = "default", className = "", onClick, ...props }) => {
+    const baseClasses = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background";
+    
+    const variants = {
+      default: "bg-primary text-primary-foreground hover:bg-primary/90",
+      ghost: "hover:bg-accent hover:text-accent-foreground",
+      festival: "bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:from-orange-600 hover:to-pink-600 shadow-lg",
+      divine: "bg-gradient-to-r from-purple-500 to-indigo-500 text-white hover:from-purple-600 hover:to-indigo-600 shadow-lg"
+    };
+    
+    const sizes = {
+      sm: "h-9 px-3 text-sm",
+      default: "h-10 py-2 px-4",
+      lg: "h-11 px-8 text-lg"
+    };
+    
+    return (
+      <button
+        className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
+        onClick={onClick}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-subtle py-16">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50 py-16">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
             Social Activities & Gallery
           </h1>
-          <div className="w-24 h-1 bg-gradient-festival mx-auto mb-8"></div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-pink-500 mx-auto mb-8"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore our community initiatives, cultural celebrations, and memorable moments 
             from Durga Puja festivities
           </p>
@@ -71,7 +116,7 @@ const SocialActivitiesPage = () => {
 
         {/* Navigation Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-xl p-2 shadow-elegant">
+          <div className="bg-white rounded-xl p-2 shadow-lg">
             <Button
               variant={activeTab === "gallery" ? "festival" : "ghost"}
               onClick={() => setActiveTab("gallery")}
@@ -103,10 +148,12 @@ const SocialActivitiesPage = () => {
           <div className="space-y-12">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {galleryImages?.map((image) => (
-                <div key={image.id} className="group relative overflow-hidden rounded-xl shadow-elegant hover:shadow-festival transition-all duration-300">
-                  <div className="aspect-square bg-gradient-festival relative">
+                <div key={image.id} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+                  <div className="aspect-square bg-gradient-to-br from-orange-500 to-pink-500 relative">
                     <img 
-                      src={image.id % 2 === 0 ? culturalImage : galleryImage} 
+                    // <img src="https://drive.google.com/thumbnail?id=10hhX4pIZr0NhuusN4eHvf4ghah5d6yAG" alt="Image From Drive">
+
+                      src={image.imageUrl}
                       alt={image.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -134,16 +181,16 @@ const SocialActivitiesPage = () => {
           <div className="space-y-8">
             <div className="grid md:grid-cols-2 gap-8">
               {videos.map((video) => (
-                <div key={video.id} className="bg-white rounded-xl shadow-elegant hover:shadow-festival transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video bg-gradient-festival relative">
+                <div key={video.id} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                  <div className="aspect-video bg-gradient-to-br from-orange-500 to-pink-500 relative">
                     <img 
-                      src={video.id % 2 === 0 ? culturalImage : galleryImage} 
+                      src={video.thumbnailUrl} 
                       alt={video.title}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                       <div className="text-center text-white">
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-white/30 transition-colors cursor-pointer">
                           <Video className="w-8 h-8" />
                         </div>
                         <p className="text-sm bg-black/50 px-2 py-1 rounded">{video.duration}</p>
@@ -151,8 +198,8 @@ const SocialActivitiesPage = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-2">{video.title}</h3>
-                    <p className="text-muted-foreground mb-4">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">{video.title}</h3>
+                    <p className="text-gray-600 mb-4">
                       Experience the divine moments and cultural richness of our celebration
                     </p>
                     <Button variant="festival" size="sm">
@@ -170,28 +217,28 @@ const SocialActivitiesPage = () => {
         {activeTab === "events" && (
           <div className="space-y-8">
             {socialEvents.map((event, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-elegant hover:shadow-festival transition-all duration-300 p-8">
+              <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8">
                 <div className="flex items-start space-x-6">
-                  <div className={`w-16 h-16 bg-gradient-festival rounded-full flex items-center justify-center text-white`}>
+                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full flex items-center justify-center text-white shadow-lg">
                     <event.icon className="w-8 h-8" />
                   </div>
                   <div className="flex-grow">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <h3 className="text-2xl font-bold text-foreground">{event.title}</h3>
-                      <span className="text-sm bg-muted px-3 py-1 rounded-full flex items-center">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-4">
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2 sm:mb-0">{event.title}</h3>
+                      <span className="text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full flex items-center w-fit">
                         <Calendar className="w-3 h-3 mr-1" />
                         {event.date}
                       </span>
                     </div>
-                    <p className="text-muted-foreground mb-6">{event.description}</p>
+                    <p className="text-gray-600 mb-6 text-lg">{event.description}</p>
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-muted/50 rounded-lg p-4">
-                        <p className="text-sm text-muted-foreground">Participants</p>
-                        <p className="font-semibold text-foreground">{event.participants}</p>
+                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                        <p className="text-sm text-gray-500 mb-1">Participants</p>
+                        <p className="font-semibold text-gray-800 text-lg">{event.participants}</p>
                       </div>
-                      <div className="bg-muted/50 rounded-lg p-4">
-                        <p className="text-sm text-muted-foreground">Impact</p>
-                        <p className="font-semibold text-foreground">{event.impact}</p>
+                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                        <p className="text-sm text-gray-500 mb-1">Impact</p>
+                        <p className="font-semibold text-gray-800 text-lg">{event.impact}</p>
                       </div>
                     </div>
                   </div>
@@ -203,11 +250,11 @@ const SocialActivitiesPage = () => {
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl shadow-elegant p-12">
-            <h2 className="text-3xl font-bold text-foreground mb-6">
+          <div className="bg-white rounded-2xl shadow-lg p-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Join Our Community Initiatives
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Be part of our social activities and help us make a positive impact in the community
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

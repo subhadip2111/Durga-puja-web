@@ -25,7 +25,7 @@ const Navigation = ({ currentPage, onPageChange }: NavigationProps) => {
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-2xl font-bold bg-gradient-festival bg-clip-text text-transparent">
-             বিশ্বাস নুন্নান সর্বজনীন দুর্গোৎসব কমিটি
+             বিশ্বাস নুন্নান সার্বজনীন দুর্গোৎসব কমিটি
             </h1>
           </div>
 
